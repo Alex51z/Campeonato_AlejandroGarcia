@@ -3,7 +3,9 @@ package com.example.inicio;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
     Button modiPartidos;
     Button verPartido;
     Button salir;
-    Boolean sonido= false;
+    Button sonidoS;
+    Button sonidoN;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         modiPartidos= findViewById(R.id.modificarPar);
         verPartido= findViewById(R.id.verPartidos);
         salir= findViewById(R.id.salirAplicacion);
+        sonidoN= findViewById(R.id.btnDesactivarS);
+        sonidoS= findViewById(R.id.btnActivasrS);
 
         modiPartidos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,8 +61,35 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        sonidoS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                turnOnSound(MainActivity.this);
+            }
+        });
+
+        sonidoN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                turnOffSound(MainActivity.this);
+            }
+        });
     }
 
+    public void turnOffSound(Context context) {
+        AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        if (audioManager != null) {
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 0, 0);
+        }
+    }
+
+    public void turnOnSound(Context context) {
+        AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        if (audioManager != null) {
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), 0);
+        }
+    }
 
     public void verPartidos() {
         Intent i= new Intent(this, Ver_Resultados.class);

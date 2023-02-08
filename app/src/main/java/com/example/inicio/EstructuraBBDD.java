@@ -9,8 +9,7 @@ public class EstructuraBBDD {
                     "(" + Equipos._ID + " integer PRIMARY KEY, "
                     + Equipos.COLUMN_NAME_NOMBRE_EQUIPO + " text, "
                     + Equipos.COLUMN_NAME_CIUDAD + " text, "
-                    + Equipos.COLUMN_NAME_PUNTOS_ACUMULADOS + " integer, "
-                    + Equipos.COLUMN_NAME_FOTO_EQUIPO + " integer);";
+                    + Equipos.COLUMN_NAME_PUNTOS_ACUMULADOS + " integer, ";
 
     public static final String SQL_DELETE_EQUIPOS =
             "DROP TABLE IF EXISTS " + Equipos.TABLE_NAME_EQUIPOS;
@@ -36,7 +35,6 @@ public class EstructuraBBDD {
         public static final String COLUMN_NAME_NOMBRE_EQUIPO = "Nombre_equipo";
         public static final String COLUMN_NAME_CIUDAD = "Ciudad";
         public static final String COLUMN_NAME_PUNTOS_ACUMULADOS = "Puntos_acumulados";
-        public static final String COLUMN_NAME_FOTO_EQUIPO = "Foto_equipo";
     }
 
     public static class Partidos implements BaseColumns {
