@@ -34,13 +34,13 @@ public class Modificar_Equipo extends AppCompatActivity {
         eliminar= findViewById(R.id.btnEliminar);
         modificar= findViewById(R.id.btnActualizarNombre);
         insertar= findViewById(R.id.btnInsertar);
-        nombreOld= findViewById(R.id.eTextOld);
-        nombreNew= findViewById(R.id.eTextNew);
-        ciudad= findViewById(R.id.eTextOldC);
-        nombreInsert= findViewById(R.id.eTextInsertNombre);
-        ciudadInsert= findViewById(R.id.eTextInsertCiudad);
-        puntosInsert= findViewById(R.id.eTextInsetPuntos);
-        lv= findViewById(R.id.lista);
+        nombreOld= findViewById(R.id.eTextOldP);
+        nombreNew= findViewById(R.id.eTextNewP);
+        ciudad= findViewById(R.id.eTextOldPC);
+        nombreInsert= findViewById(R.id.eTextInsertNombreP);
+        ciudadInsert= findViewById(R.id.eTextInsertCiudadP);
+        puntosInsert= findViewById(R.id.eTextInsetPuntosP);
+        lv= findViewById(R.id.listaP);
         consultar();
 
         modificar.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +64,8 @@ public class Modificar_Equipo extends AppCompatActivity {
                 insertarNuevoEquipo(nombreInsert.getText().toString(), ciudadInsert.getText().toString(), puntos);
             }
         });
+
+
     }
 
     public void actualizarNombreEquipo(String viejo, String nuevo) {
